@@ -236,7 +236,7 @@ volumes:
     driver: local
 
 networks:
-  dokploy-network:
+  zeebe-network:
     external: true
   zeebe_network:
     driver: bridge
