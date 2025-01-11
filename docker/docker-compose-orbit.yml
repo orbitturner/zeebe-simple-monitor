@@ -16,10 +16,9 @@ services:
       - 5701 # NON HTTP
       - 8080 # HTTP REST
     networks:
-      # - dokploy-network
       - zeebe_network
     labels:
-      - traefik.docker.network=dokploy-network # Fix for https://github.com/traefik/traefik/issues/1254
+      - traefik.docker.network=zeebe_network # Fix for https://github.com/traefik/traefik/issues/1254
     volumes:
       - ./hazelcast/application.yaml:/usr/local/zeebe/config/application.yaml
     profiles:
@@ -45,10 +44,9 @@ services:
       - zeebe
       - postgres-zeebe-simple-monitor
     networks:
-      - dokploy-network
       - zeebe_network
     labels:
-      - traefik.docker.network=dokploy-network # Fix for https://github.com/traefik/traefik/issues/1254
+      - traefik.docker.network=zeebe_network # Fix for https://github.com/traefik/traefik/issues/1254
     profiles:
       - hazelcast_postgres
 
@@ -64,7 +62,6 @@ services:
     ports:
       - "55432:5432"
     networks:
-      - dokploy-network
       - zeebe_network
     profiles:
       - postgres
