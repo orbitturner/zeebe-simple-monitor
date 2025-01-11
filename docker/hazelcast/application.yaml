@@ -1,11 +1,15 @@
-zeebe:
-  broker:
-    exporters:
-      hazelcast:
-        className: io.zeebe.hazelcast.exporter.HazelcastExporter
-        # jarPath: exporters/zeebe-hazelcast-exporter-jar-with-dependencies.jar
-        args: 
-          enabled: true
-          host: 0.0.0.0
-          port: 5701
-          clusterName: dev
+# zeebe:
+#   broker:
+#     exporters:
+#       hazelcast:
+#         className: io.zeebe.hazelcast.exporter.HazelcastExporter
+#         jarPath: exporters/zeebe-hazelcast-exporter-jar-with-dependencies.jar
+
+exporters:
+  hazelcast:
+    className: io.camunda.zeebe.exporter.hazelcast.HazelcastExporter
+    args:
+      enabled: true
+      host: 0.0.0.0
+      port: 5701
+      clusterName: dev
