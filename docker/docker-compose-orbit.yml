@@ -236,7 +236,5 @@ volumes:
     driver: local
 
 networks:
-  zeebe-network:
-    external: true
   zeebe_network:
     driver: bridge
