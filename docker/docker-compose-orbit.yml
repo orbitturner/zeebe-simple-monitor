@@ -10,11 +10,15 @@ services:
     #   - "9600:9600"
     #   - "5701:5701"
     ports:
-      - "26600:26500" # TCP BROKER
-    expose:
-      - 9600 # CLOSED API HTTP
-      - 5701 # NON HTTP
-      - 8080 # HTTP REST
+      - "26600:26500"
+      - "9600:9600"
+      - "5701:5701"
+    # ports:
+    #   - "26600:26500" # TCP BROKER
+    # expose:
+    #   - 9600 # CLOSED API HTTP
+    #   - 5701 # NON HTTP
+    #   - 8080 # HTTP REST
     networks:
       - zeebe_network
     labels:
@@ -36,10 +40,10 @@ services:
       - spring.datasource.password=zeebe
       - spring.datasource.driverClassName=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-    # ports:
-    #   - "8082:8082"
-    expose:
-      - 8082 # WEB
+    ports:
+      - "18082:8082"
+    # expose:
+    #   - 8082 # WEB
     depends_on:
       - zeebe
       - postgres-zeebe-simple-monitor
@@ -57,10 +61,10 @@ services:
       POSTGRES_PASSWORD: zeebe
     volumes:
       - ./postgres-zeebe-simple-monitor-data:/var/lib/postgresql/data
-    # ports:
-    #   - "5432:5432"
-    expose:
-      - 5432
+    ports:
+      - "15432:5432"
+    # expose:
+    #   - 5432
     networks:
       - zeebe_network
     profiles:
