@@ -16,7 +16,7 @@ services:
       - 5701 # NON HTTP
       - 8080 # HTTP REST
     networks:
-      - dokploy-network
+      # - dokploy-network
       - zeebe_network
     labels:
       - traefik.docker.network=dokploy-network # Fix for https://github.com/traefik/traefik/issues/1254
