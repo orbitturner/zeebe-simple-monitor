@@ -13,3 +13,10 @@ exporters:
       host: 0.0.0.0
       port: 5701
       clusterName: dev
+
+white-label:
+  logo.path: img/logo.png
+  custom:
+    title: Topatoko Monitor
+    css.path: css/custom.css
+    js.path: js/custom.js
