@@ -10,9 +10,9 @@ services:
     #   - "9600:9600"
     #   - "5701:5701"
     ports:
-      - "126500:26500"
-      - "19600:9600"
-      - "15701:5701"
+      - "16500:26500"
+      - "1600:9600"
+      - "1701:5701"
     # ports:
     #   - "26600:26500" # TCP BROKER
     # expose:
@@ -41,7 +41,7 @@ services:
       - spring.datasource.driverClassName=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
     ports:
-      - "18082:8082"
+      - "1082:8082"
     # expose:
     #   - 8082 # WEB
     depends_on:
@@ -62,7 +62,7 @@ services:
     volumes:
       - ./postgres-zeebe-simple-monitor-data:/var/lib/postgresql/data
     ports:
-      - "15432:5432"
+      - "1432:5432"
     # expose:
     #   - 5432
     networks:
