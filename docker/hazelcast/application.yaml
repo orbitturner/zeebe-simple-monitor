@@ -14,9 +14,9 @@ exporters:
       port: 5701
       clusterName: dev
 
-white-label:
-  logo.path: img/logo.png
-  custom:
-    title: Topatoko Monitor
-    css.path: css/custom.css
-    js.path: js/custom.js
+# white-label:
+#   logo.path: img/logo.png
+#   custom:
+#     title: Topatoko Monitor
+#     css.path: css/custom.css
+#     js.path: js/custom.js
