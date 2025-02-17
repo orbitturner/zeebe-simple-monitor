@@ -10,7 +10,7 @@ services:
       - "${ZEEBE_PORT_API}:9600"
       - "${ZEEBE_PORT_HAZELCAST}:5701"
     networks:
-      - zeebe_network${PROJECT_STAGE}
+      - zeebe_network
     labels:
       - traefik.docker.network=zeebe_network${PROJECT_STAGE}
     volumes:
@@ -36,7 +36,7 @@ services:
       - zeebe
       - postgres-zeebe-simple-monitor
     networks:
-      - zeebe_network${PROJECT_STAGE}
+      - zeebe_network
     labels:
       - traefik.docker.network=zeebe_network_${PROJECT_STAGE}
     profiles:
@@ -52,7 +52,7 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     networks:
-      - zeebe_network${PROJECT_STAGE}
+      - zeebe_network
     profiles:
       - postgres
 
@@ -67,3 +67,6 @@ volumes:
 #     name: zeebe_network${PROJECT_STAGE}
 #     driver: bridge
 
+networks:
+  zeebe_network:
+    driver: bridge
