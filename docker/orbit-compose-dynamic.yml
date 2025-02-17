@@ -1,6 +1,6 @@
 services:
   zeebe:
-    container_name: zeebe-broker-hazelcast
+    container_name: zeebe-broker-hazelcast-${PROJECT_STAGE}
     image: ghcr.io/camunda-community-hub/zeebe-with-hazelcast-exporter:8.2.0
     environment:
       - ZEEBE_LOG_LEVEL=debug
@@ -12,14 +12,14 @@ services:
     networks:
       - zeebe_network
     labels:
-      - traefik.docker.network=zeebe_network${PROJECT_STAGE}
+      - traefik.docker.network=zeebe_network
     volumes:
       - ./hazelcast/application.yaml:/usr/local/zeebe/config/application.yaml
     profiles:
       - hazelcast
 
   simple-monitor-postgres:
-    container_name: zeebe-simple-monitor-postgres
+    container_name: zeebe-simple-monitor-postgres-${PROJECT_STAGE}
     image: ghcr.io/camunda-community-hub/zeebe-simple-monitor:2.5.2
     environment:
       - zeebe.client.broker.gateway-address=zeebe:${ZEEBE_PORT_BROKER}
