@@ -22,7 +22,7 @@ services:
     container_name: zeebe-simple-monitor-postgres-${PROJECT_STAGE}
     image: ghcr.io/camunda-community-hub/zeebe-simple-monitor:2.5.2
     environment:
-      - zeebe.client.broker.gateway-address=zeebe:${ZEEBE_PORT_BROKER}
+      - zeebe.client.broker.gateway-address=${SERVER_HOST}:${ZEEBE_PORT_BROKER}
       - zeebe.client.worker.hazelcast.connection=${SERVER_HOST}:${ZEEBE_PORT_HAZELCAST}
       - zeebe.client.worker.hazelcast.clusterName=dev
       - spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/postgres
