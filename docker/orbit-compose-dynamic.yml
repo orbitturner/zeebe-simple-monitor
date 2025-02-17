@@ -63,5 +63,7 @@ volumes:
     driver: local
 
 networks:
-  zeebe_network${PROJECT_STAGE}:
+  default:
+    name: zeebe_network${PROJECT_STAGE}
     driver: bridge
+
