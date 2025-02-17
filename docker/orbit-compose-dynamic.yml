@@ -62,8 +62,8 @@ volumes:
   mysql-zeebe-simple-monitor-data:
     driver: local
 
-networks:
-  default:
-    name: zeebe_network${PROJECT_STAGE}
-    driver: bridge
+# networks:
+#   default:
+#     name: zeebe_network${PROJECT_STAGE}
+#     driver: bridge
 
